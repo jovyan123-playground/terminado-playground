@@ -6,7 +6,14 @@
 
 from __future__ import absolute_import, print_function
 
-import asyncio
+import sys
+if sys.version_info[0] < 3:
+    byte_code = ord
+else:
+    def byte_code(x): return x
+    unicode = str
+
+
 from collections import deque
 import itertools
 import logging
