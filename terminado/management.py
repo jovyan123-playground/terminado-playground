@@ -13,7 +13,6 @@ else:
     def byte_code(x): return x
     unicode = str
 
-
 from collections import deque
 import itertools
 import logging
