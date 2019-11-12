@@ -13,6 +13,7 @@ else:
     def byte_code(x): return x
     unicode = str
 
+
 from collections import deque
 import itertools
 import logging
@@ -60,7 +61,7 @@ class PtyWithClients(object):
         """Set the terminal size to that of the smallest client dimensions.
 
         A terminal not using the full space available is much nicer than a
-        terminal trying to use more than the available space, so we keep it 
+        terminal trying to use more than the available space, so we keep it
         sized to the smallest client.
         """
         minrows = mincols = 10001
