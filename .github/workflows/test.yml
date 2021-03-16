@@ -41,8 +41,7 @@ jobs:
             ${{ runner.os }}-pip-
       - name: Install the Python dependencies
         run: |
-          pip install -e .
-          pip install pytest
+          pip install -e .[test]
       - name: List installed packages
         run: |
           pip freeze
