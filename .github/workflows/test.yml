@@ -47,6 +47,7 @@ jobs:
           pip freeze
           pip check
       - name: Run the tests
+        if: ${{ matrix.os != 'windows' }}
         run: |
           pytest -vv -s
       - name: Run basic test on Windows
