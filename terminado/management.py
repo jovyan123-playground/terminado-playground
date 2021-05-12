@@ -119,6 +119,9 @@ class PtyWithClients(object):
                     raise gen.Return(True)
                 else:
                     raise gen.Return(False)
+            yield sleep()
+            if self.ptyproc.isalive():
+                raise ValueError('what the heck')
             raise gen.Return(False)
         except OSError:
             # I think there are kernel timing issues that sometimes cause
