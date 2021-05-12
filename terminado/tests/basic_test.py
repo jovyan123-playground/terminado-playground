@@ -139,8 +139,11 @@ class TermTestCase(tornado.testing.AsyncHTTPTestCase):
 
     def tearDown(self):
         self.named_tm.kill_all()
+        assert len(self.named_tm.terminals) == 0, len(self.named_tm.terminals)
         self.single_tm.kill_all()
+        assert len(self.single_tm.terminals) == 0, len(self.single_tm.terminals)
         self.unique_tm.kill_all()
+        assert len(self.unique_tm.terminals) == 0, len(self.unique_tm.terminals)
         super().tearDown()
 
     def get_app(self):

@@ -112,13 +112,13 @@ class PtyWithClients(object):
                 yield sleep()
                 if not self.ptyproc.isalive():
                     raise gen.Return(True)
-            # if force:
-            #     self.kill(signal.SIGKILL)
-            #     yield sleep()
-            #     if not self.ptyproc.isalive():
-            #         raise gen.Return(True)
-            #     else:
-            #         raise gen.Return(False)
+            if force:
+                self.kill(signal.SIGKILL)
+                yield sleep()
+                if not self.ptyproc.isalive():
+                    raise gen.Return(True)
+                else:
+                    raise gen.Return(False)
             raise gen.Return(False)
         except OSError:
             # I think there are kernel timing issues that sometimes cause
