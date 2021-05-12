@@ -145,7 +145,7 @@ class TermTestCase(tornado.testing.AsyncHTTPTestCase):
         self.unique_tm.kill_all()
         while len(self.unique_tm.ptys_by_fd) > 0:
             import time
-            time.sleep(10)
+            time.sleep(1)
         super().tearDown()
 
     def get_app(self):
