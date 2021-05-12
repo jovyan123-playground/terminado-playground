@@ -141,9 +141,9 @@ class TermTestCase(tornado.testing.AsyncHTTPTestCase):
         self.named_tm.kill_all()
         assert len(self.named_tm.terminals) == 0, len(self.named_tm.terminals)
         self.single_tm.kill_all()
-        assert len(self.single_tm.terminals) == 0, len(self.single_tm.terminals)
+        assert len(self.single_tm.ptys_by_fd) == 0, len(self.single_tm.ptys_by_fd)
         self.unique_tm.kill_all()
-        assert len(self.unique_tm.terminals) == 0, len(self.unique_tm.terminals)
+        assert len(self.unique_tm.ptys_by_fd) == 0, len(self.unique_tm.ptys_by_fd)
         super().tearDown()
 
     def get_app(self):
