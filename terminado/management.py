@@ -119,7 +119,7 @@ class PtyWithClients(object):
             #         raise gen.Return(True)
             #     else:
             #         raise gen.Return(False)
-            raise gen.Return(False)
+            #raise gen.Return(False)
         except OSError:
             # I think there are kernel timing issues that sometimes cause
             # this to happen. I think isalive() reports True, but the
