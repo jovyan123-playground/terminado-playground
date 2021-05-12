@@ -60,7 +60,7 @@ class PtyWithClients(object):
         """Set the terminal size to that of the smallest client dimensions.
 
         A terminal not using the full space available is much nicer than a
-        terminal trying to use more than the available space, so we keep it 
+        terminal trying to use more than the available space, so we keep it
         sized to the smallest client.
         """
         minrows = mincols = 10001
@@ -112,13 +112,13 @@ class PtyWithClients(object):
                 yield sleep()
                 if not self.ptyproc.isalive():
                     raise gen.Return(True)
-            if force:
-                self.kill(signal.SIGKILL)
-                yield sleep()
-                if not self.ptyproc.isalive():
-                    raise gen.Return(True)
-                else:
-                    raise gen.Return(False)
+            # if force:
+            #     self.kill(signal.SIGKILL)
+            #     yield sleep()
+            #     if not self.ptyproc.isalive():
+            #         raise gen.Return(True)
+            #     else:
+            #         raise gen.Return(False)
             raise gen.Return(False)
         except OSError:
             # I think there are kernel timing issues that sometimes cause
