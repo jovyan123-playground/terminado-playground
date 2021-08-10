@@ -206,7 +206,8 @@ class TermManagerBase(object):
 
     def pty_read(self, fd, events=None):
         """Called by the event loop when there is pty data ready to read."""
-        r, _, _ = select.select([fd], [], [], .1)
+        poller = select.select if os.name == 'nt' else select.poll
+        r, _, _ = poller([fd], [], [], .1)
         if not r:
             return
         ptywclients = self.ptys_by_fd[fd]
